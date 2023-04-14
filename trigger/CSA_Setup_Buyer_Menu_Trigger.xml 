@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trigger for CSA Setup Buyer Menu -->
+<Trigger>
+  <Name>CSA Setup Buyer Menu Trigger</Name>
+  <Description>Trigger to access the functionalities displayed on the CSA setup buyer menu</Description>
+  <Action>
+    <!-- Ability to access the functionalities displayed on CSA setup buyer menu -->
+    <ActionType>Access</ActionType>
+    <TargetObject>CSA Setup Buyer Menu</TargetObject>
+    <ActionDescription>Access the buyer menu</ActionDescription>
+  </Action>
+  <Action>
+    <!-- Ability to add new buyer or edit buyer functionality with following -->
+    <ActionType>Add/Edit Buyer</ActionType>
+    <TargetObject>Buyer Details</TargetObject>
+    <ActionDescription>Add/Edit buyer details, including title, first name, last name, login ID, email address, password, confirm password, phone number, mobile number, news spread account number, retailer name, address 1, address 2, address 3</ActionDescription>
+  </Action>
+  <Action>
+    <!-- Ability to click all functionalities on buyer menu -->
+    <ActionType>Click</ActionType>
+    <TargetObject>Buyer Menu</TargetObject>
+    <ActionDescription>Click functionalities on buyer menu, including account number, load all buyer, and search</ActionDescription>
+  </Action>
+  <Action>
+    <!-- Ability to search buyer by account number -->
+    <ActionType>Search</ActionType>
+    <TargetObject>Buyer</TargetObject>
+    <ActionDescription>Search for a buyer by account number</ActionDescription>
+  </Action>
+  <Action>
+    <!-- Ability to change password or other confidential information by verifying account owner -->
+    <ActionType>Change Password or Confidential Information</ActionType>
+    <TargetObject>Account Owner</TargetObject>
+    <ActionDescription>Verify account owner before changing password or confidential information</ActionDescription>
+  </Action>
+  <Action>
+    <!-- Ability to see all functionalities on buyer menu -->
+    <ActionType>View</ActionType>
+    <TargetObject>Buyer Menu</TargetObject>
+    <ActionDescription>View all functionalities on buyer menu, including login ID, buyer name, account number, retailer name, email address, and search in all columns</ActionDescription>
+  </Action>
+  <Action>
+    <!-- Ability to see minimum 25 or more entries of all functionalities -->
+    <ActionType>View Entries</ActionType>
+    <TargetObject>Buyer Menu Entries</TargetObject>
+    <ActionDescription>View minimum 25 or more entries of all functionalities</ActionDescription>
+  </Action>
+  <Action>
+    <!-- Ability to communicate with the customer through chat or call -->
+    <ActionType>Communicate</ActionType>
+    <TargetObject>Customer</TargetObject>
+    <ActionDescription>Communicate with the customer through chat or call</ActionDescription>
+  </Action>
+</Trigger>
