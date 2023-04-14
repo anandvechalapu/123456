@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VFPage>
+    <Label>Orders</Label>
+    <Description>CSA Management Orders menu</Description>
+    <Tabs>
+        <Tab>
+            <Label>Orders</Label>
+            <Actions>
+                <Action>
+                    <Name>Search</Name>
+                    <Label>Search</Label>
+                    <Type>Search</Type>
+                    <SearchFields>
+                        <SearchField>
+                            <Label>Account Number</Label>
+                            <Name>AccountNumber</Name>
+                        </SearchField>
+                        <SearchField>
+                            <Label>Order Reference Number</Label>
+                            <Name>OrderReferenceNumber</Name>
+                        </SearchField>
+                        <SearchField>
+                            <Label>Order Date</Label>
+                            <Name>OrderDate</Name>
+                        </SearchField>
+                    </SearchFields>
+                    <FilterFields>
+                        <FilterField>
+                            <Label>From Date</Label>
+                            <Name>FromDate</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>To Date</Label>
+                            <Name>ToDate</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Product</Label>
+                            <Name>Product</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Country</Label>
+                            <Name>Country</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Status</Label>
+                            <Name>Status</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Export Date</Label>
+                            <Name>ExportDate</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Export Number</Label>
+                            <Name>ExportNumber</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Order Reference</Label>
+                            <Name>OrderReference</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Date</Label>
+                            <Name>Date</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Time</Label>
+                            <Name>Time</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Buyer IP Address</Label>
+                            <Name>BuyerIPAddress</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Buyer Name</Label>
+                            <Name>BuyerName</Name>
+                        </FilterField>
+                        <FilterField>
+                            <Label>Buyer Email</Label>
+                            <Name>BuyerEmail</Name>
+                        </FilterField>
+                    </FilterFields>
+                </Action>
+                <Action>
+                    <Name>NewOrder</Name>
+                    <Label>New Order</Label>
+                    <Type>Standard</Type>
+                    <StandardController>Order</StandardController>
+                    <Type>New</Type>
+                </Action>
+                <Action>
+                    <Name>EditOrder</Name>
+                    <Label>Edit Order</Label>
+                    <Type>Standard</Type>
+                    <StandardController>Order</StandardController>
+                    <Type>Edit</Type>
+                </Action>
+                <Action>
+                    <Name>DeleteOrder</Name>
+                    <Label>Delete Order</Label>
+                    <Type>Standard</Type>
+                    <StandardController>Order</StandardController>
+                    <Type>Delete</Type>
+                </Action>
+            </Actions>
+        </Tab>
+    </Tabs>
+</VFPage>
