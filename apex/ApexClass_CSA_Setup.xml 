@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>45.0</apiVersion>
+    <status>Active</status>
+    <userStory>CSA Setup: As a CSA when I click on setup menu it should allow me to show all functionalities over setup.</userStory>
+    <acceptanceCriteria>
+        <criteria>Ability to access the functionalities displayed on CSA setup menu</criteria>
+        <criteria>Ability to click the functionalities displayed on CSA setup screen with the following: Administrator; Buyers; Group Buyers; Retailers; Block/Unlock titles; Product categories; Documents; Slides; So event calendar</criteria>
+        <criteria>Ability to click all functionalities and add required details.</criteria>
+    </acceptanceCriteria>
+    <acceptanceTesting>
+        <test>Verify whether User is able to login with valid account and valid password.</test>
+        <test>Verify that all functionalities displayed on CSA setup menu are accessible.</test>
+        <test>Verify that the user can click the functionalities displayed on CSA setup screen, including Administrators, Buyers, Group Buyers, Retailers, Block/Unlock titles, Product categories, Documents, Slides, and So event calendar.</test>
+        <test>Verify that the user can click all functionalities and add required details.</test>
+    </acceptanceTesting>
+    <definitionOfDone>
+        <definition>All functionalities displayed on CSA setup menu should be accessible.</definition>
+        <definition>The user can be able to click the functionalities displayed on CSA setup screen, including Administrators, Buyers, Group Buyers, Retailers, Block/Unlock titles, Product categories, Documents, Slides, and So event calendar.</definition>
+        <definition>The user can be able to click all functionalities and add required details, including adding new administrators, buyers, group buyers, retailers, products, product categories, documents, slides, and SO event calendars, editing existing ones, and deleting them. The user can also assign permissions and roles as required. Additionally, the system should validate the entered details and display appropriate error messages when there are validation errors.</definition>
+    </definitionOfDone>
+</ApexClass>
