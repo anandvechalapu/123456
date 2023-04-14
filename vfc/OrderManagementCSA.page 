@@ -1,0 +1,41 @@
+<apex:page controller="OrderCSA">
+    <apex:form>
+        <apex:pageBlock title="Order Management">
+            <apex:pageBlockButtons>
+                <apex:commandButton value="Add Order" action="{!addOrder}" />
+                <apex:commandButton value="Edit Order" action="{!editOrder}" />
+                <apex:commandButton value="Delete Order" action="{!deleteOrder}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!ListOrders}" var="o">
+                <apex:column value="{!o.Account_Number__c}" headerValue="Account Number" />
+                <apex:column value="{!o.Order_Reference_Number__c}" headerValue="Order Reference Number" />
+                <apex:column value="{!o.Order_Date__c}" headerValue="Order Date" />
+                <apex:column value="{!o.Product__c}" headerValue="Product" />
+                <apex:column value="{!o.Country__c}" headerValue="Country" />
+                <apex:column value="{!o.Status__c}" headerValue="Status" />
+                <apex:column value="{!o.Export_Date__c}" headerValue="Export Date" />
+                <apex:column value="{!o.Export_Number__c}" headerValue="Export Number" />
+                <apex:column value="{!o.Order_Reference__c}" headerValue="Order Reference" />
+                <apex:column value="{!o.Date__c}" headerValue="Date" />
+                <apex:column value="{!o.Time__c}" headerValue="Time" />
+                <apex:column value="{!o.Buyer_IP_Address__c}" headerValue="Buyer IP Address" />
+                <apex:column value="{!o.Buyer_Name__c}" headerValue="Buyer Name" />
+                <apex:column value="{!o.Buyer_Email__c}" headerValue="Buyer Email" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Order Summary">
+            <apex:pageBlockSection>
+                <apex:inputField label="From Date" value="{!fromDate}" />
+                <apex:inputField label="To Date" value="{!toDate}" />
+                <apex:inputField label="Product" value="{!product}" />
+                <apex:inputField label="Country" value="{!country}" />
+                <apex:inputField label="Status" value="{!status}" />
+                <apex:commandButton value="Search" action="{!SearchOrders}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection>
+                <apex:outputText value="Number of Orders: {!NumberOfOrders}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
