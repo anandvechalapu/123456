@@ -1,0 +1,83 @@
+<template>
+    <div>
+        <h1>Price Changes</h1>
+
+        <div class="search-bar">
+            <!-- Search bar -->
+            <lightning-input type="search" label="Search" value={searchString} onchange={handleSearchChange}></lightning-input>
+        </div>
+
+        <!-- Price changes list -->
+        <lightning-card title="Price Changes" icon-name="standard:pricebook_entry">
+            <div class="price-changes-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Barcode</th>
+                            <th>RRP</th>
+                            <th>Due on Sale Date</th>
+                            <th>Display Price</th>
+                            <th>Reset</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template if:true={prices}>
+                            <template for:each={prices} for:item="price">
+                                <tr key={price.id}>
+                                    <td>{price.date}</td>
+                                    <td>{price.title}</td>
+                                    <td>{price.barcode}</td>
+                                    <td>{price.rrp}</td>
+                                    <td>{price.dueOnSaleDate}</td>
+                                    <td>{price.displayPrice}</td>
+                                    <td>{price.reset}</td>
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </div>
+</template>
+
+<script>
+import { LightningElement, api, track } from 'lwc';
+import { PriceChangesController } from '@salesforce/apex/PriceChangesController.getPriceChanges';
+
+export default class PriceChanges extends LightningElement {
+    @track searchString = '';
+    @track prices;
+
+    handleSearchChange(event) {
+        this.searchString = event.target.value;
+        this.getPriceChanges();
+    }
+
+    getPriceChanges() {
+        PriceChangesController({ searchString: this.searchString })
+            .then(result => {
+                this.prices = result;
+            })
+            .catch(error => {
+                this.error = error;
+            });
+    }
+}
+</script>
+
+<style>
+    .price-changes-table {
+        width: 100%;
+    }
+
+    .price-changes-table th {
+        border: 1px solid #ddd;
+    }
+
+    .price-changes-table td {
+        border: 1px solid #ddd;
+    }
+</style>
