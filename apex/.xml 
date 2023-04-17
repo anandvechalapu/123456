@@ -1,0 +1,22 @@
+·       System should display the calendar to select the date.·       System should be able to select the date, month and year.·       System should be able to select the month from the drop down menu.·       System should automatically close the calendar once date and year is selected.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>44.0</apiVersion>
+    <status>Active</status>
+    <description>Apex Class to select date, month and year from calendar</description>
+    <name>SelectDate</name>
+    <body>public class SelectDate {
+    
+	public void selectCalendarDates(){
+		// Insert code to access the calendar to set date, month, year
+		// Insert code to select the date, month, year in calendar
+		// Insert code to open the calendar and enter the dates manually
+		// Insert code to select the month from the drop down menu
+		// Insert code to display the dates as per selection done by the user
+		// Insert code to select the month from the drop down menu
+		// Insert code to close the calendar automatically once date and year is selected
+	}
+}
+</body>
+</ApexClass>
