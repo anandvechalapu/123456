@@ -1,0 +1,46 @@
+·       User should be able to select the date month and year in calendar.·       Date should display as per selection done by the user.
+
+<ApexClass>
+    <apiVersion>40.0</apiVersion>
+    <status>Active</status>
+    <description>Class used to select the date month and year in the calendar to get the data from date to to-date.</description>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>0</minorNumber>
+        <namespace>SelectingDates</namespace>
+    </packageVersions>
+    <virtual>false</virtual>
+    <name>SelectingDates</name>
+    <body>public class SelectingDates{
+
+    //variable to store the selected date 
+    public Date selectedDate; 
+
+    //method to open the calendar 
+    public void openCalendar(){
+        //code to open the calendar
+    }
+
+    //method to select the dates from the calendar 
+    public void selectDates(){
+        //code to select the dates month and year 
+    }
+
+    //method to display the selected date 
+    public void displaySelectedDate(){
+        //code to display the date as per selection done by the user 
+    }
+
+    //method to select the month from the drop down menu 
+    public void selectMonth(){
+        //code to select the month from the drop down menu 
+    }
+
+    //method to close the calendar once date and year is selected 
+    public void closeCalendar(){
+        //code to close the calendar once date and year is selected 
+    }
+
+}
+</body>
+</ApexClass>
