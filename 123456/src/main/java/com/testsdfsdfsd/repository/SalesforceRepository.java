@@ -2,24 +2,22 @@ package com.testsdfsdfsd.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-import com.testsdfsdfsd.model.Opportunity;
-
+@Repository
 public interface SalesforceRepository extends JpaRepository<Opportunity, Long> {
 
-    @Query("SELECT o FROM Opportunity o WHERE o.status = 'Open'")
-    List<Opportunity> findAllOpenOpportunities();
+    // Method to identify all opportunities related to an account when the account is updated
+    @Query("SELECT o FROM Opportunity o WHERE o.accountId = ?1")
+    List<Opportunity> findOpportunitiesByAccountId(Long accountId);
 
-    @Query("SELECT o FROM Opportunity o WHERE o.ownerName LIKE %?1")
-    List<Opportunity> findOpportunitiesByOwnerName(String ownerName);
+    // Method to check if an opportunity's created date is greater than 30 days from today
+    @Query("SELECT o FROM Opportunity o WHERE o.createdDate > ?1")
+    List<Opportunity> findOpportunitiesCreatedMoreThan30DaysAgo(LocalDateTime thirtyDaysAgo);
 
-    @Query("SELECT o FROM Opportunity o WHERE o.stage LIKE %?1")
-    List<Opportunity> findOpportunitiesByStage(String stage);
-
-    @Query("SELECT o FROM Opportunity o WHERE o.amount LIKE %?1")
-    List<Opportunity> findOpportunitiesByAmount(String amount);
-
-    @Query("SELECT o FROM Opportunity o WHERE o.closingDate LIKE %?1")
-    List<Opportunity> findOpportunitiesByClosingDate(String closingDate);
+    // Method to update the opportunity's stage to Close Lost if its created date is greater than 30 days from today and its stage is not Close Won
+    @Modifying
+    @Query("UPDATE Opportunity o SET o.stage = 'CloseLost' WHERE o.createdDate > ?1 AND o.stage != 'Close Won'")
+    int updateOpportunityStageToCloseLost(LocalDateTime thirtyDaysAgo);
 
 }
