@@ -4,22 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 public class Opportunity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String ownerName;
-    private String status;
+    private Long accountId;
     private String stage;
-    private String amount;
-    private String closingDate;
-
-    public Opportunity() {
-    }
+    private LocalDateTime createdDate;
 
     public Long getId() {
         return id;
@@ -29,20 +24,12 @@ public class Opportunity {
         this.id = id;
     }
 
-    public String getOwnerName() {
-        return ownerName;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 
     public String getStage() {
@@ -53,20 +40,12 @@ public class Opportunity {
         this.stage = stage;
     }
 
-    public String getAmount() {
-        return amount;
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
     }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
-    public String getClosingDate() {
-        return closingDate;
-    }
-
-    public void setClosingDate(String closingDate) {
-        this.closingDate = closingDate;
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 
 }
