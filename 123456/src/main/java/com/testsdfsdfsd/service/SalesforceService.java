@@ -1,37 +1,34 @@
 package com.testsdfsdfsd.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.testsdfsdfsd.model.Opportunity;
+import org.springframework.transaction.annotation.Transactional;
 import com.testsdfsdfsd.repository.SalesforceRepository;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import com.testsdfsdfsd.model.Opportunity;
+
 @Service
+@Transactional
 public class SalesforceService {
 
-    @Autowired
     private SalesforceRepository salesforceRepository;
 
-    public List<Opportunity> findAllOpenOpportunities() {
-        return salesforceRepository.findAllOpenOpportunities();
+    public SalesforceService(SalesforceRepository salesforceRepository) {
+        this.salesforceRepository = salesforceRepository;
     }
 
-    public List<Opportunity> findOpportunitiesByOwnerName(String ownerName) {
-        return salesforceRepository.findOpportunitiesByOwnerName(ownerName);
+    public List<Opportunity> findOpportunitiesByAccountId(Long accountId) {
+        return salesforceRepository.findOpportunitiesByAccountId(accountId);
     }
 
-    public List<Opportunity> findOpportunitiesByStage(String stage) {
-        return salesforceRepository.findOpportunitiesByStage(stage);
+    public List<Opportunity> findOpportunitiesCreatedMoreThan30DaysAgo(LocalDateTime thirtyDaysAgo) {
+        return salesforceRepository.findOpportunitiesCreatedMoreThan30DaysAgo(thirtyDaysAgo);
     }
 
-    public List<Opportunity> findOpportunitiesByAmount(String amount) {
-        return salesforceRepository.findOpportunitiesByAmount(amount);
-    }
-
-    public List<Opportunity> findOpportunitiesByClosingDate(String closingDate) {
-        return salesforceRepository.findOpportunitiesByClosingDate(closingDate);
+    public int updateOpportunityStageToCloseLost(LocalDateTime thirtyDaysAgo) {
+        return salesforceRepository.updateOpportunityStageToCloseLost(thirtyDaysAgo);
     }
 
 }
