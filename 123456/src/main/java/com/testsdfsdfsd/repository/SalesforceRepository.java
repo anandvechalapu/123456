@@ -1,23 +1,29 @@
 package com.testsdfsdfsd.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import com.testsdfsdfsd.model.Opportunity;
+
 @Repository
-public interface SalesforceRepository extends JpaRepository<Opportunity, Long> {
+public interface SalesforceRepository extends CrudRepository<Opportunity, Long> {
 
-    // Method to identify all opportunities related to an account when the account is updated
-    @Query("SELECT o FROM Opportunity o WHERE o.accountId = ?1")
-    List<Opportunity> findOpportunitiesByAccountId(Long accountId);
+    List<Opportunity> findAllByStatus(String status);
 
-    // Method to check if an opportunity's created date is greater than 30 days from today
-    @Query("SELECT o FROM Opportunity o WHERE o.createdDate > ?1")
-    List<Opportunity> findOpportunitiesCreatedMoreThan30DaysAgo(LocalDateTime thirtyDaysAgo);
+    List<Opportunity> findAllByNameOrOwnerNameOrStageOrAmountOrClosingDate(String name, String ownerName, String stage, Double amount, Date closingDate);
 
-    // Method to update the opportunity's stage to Close Lost if its created date is greater than 30 days from today and its stage is not Close Won
-    @Modifying
-    @Query("UPDATE Opportunity o SET o.stage = 'CloseLost' WHERE o.createdDate > ?1 AND o.stage != 'Close Won'")
-    int updateOpportunityStageToCloseLost(LocalDateTime thirtyDaysAgo);
+    List<Opportunity> findAllByOrderByAmountAsc();
+
+    List<Opportunity> findAllByOrderByAmountDesc();
+
+    List<Opportunity> findAllByOrderByStageAsc();
+
+    List<Opportunity> findAllByOrderByStageDesc();
+
+    List<Opportunity> findAllByOrderByClosingDateAsc();
+
+    List<Opportunity> findAllByOrderByClosingDateDesc();
+
+    Page<Opportunity> findAll(Pageable pageable);
 
 }
