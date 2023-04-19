@@ -1,20 +1,37 @@
 package com.testsdfsdfsd.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "opportunities")
 public class Opportunity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    private Long accountId;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "owner_name")
+    private String ownerName;
+
+    @Column(name = "stage")
     private String stage;
-    private LocalDateTime createdDate;
+
+    @Column(name = "amount")
+    private Double amount;
+
+    @Column(name = "closing_date")
+    private Date closingDate;
 
     public Long getId() {
         return id;
@@ -24,12 +41,20 @@ public class Opportunity {
         this.id = id;
     }
 
-    public Long getAccountId() {
-        return accountId;
+    public String getName() {
+        return name;
     }
 
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
     public String getStage() {
@@ -40,12 +65,20 @@ public class Opportunity {
         this.stage = stage;
     }
 
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
+    public Double getAmount() {
+        return amount;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public Date getClosingDate() {
+        return closingDate;
+    }
+
+    public void setClosingDate(Date closingDate) {
+        this.closingDate = closingDate;
     }
 
 }
